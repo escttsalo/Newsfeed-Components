@@ -120,9 +120,9 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   const article = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
-  const first = document.createTextNode(firstParagraph);
-  const second = document.createTextNode(secondParagraph);
-  const third = document.createTextNode(thirdParagraph);
+  const first = document.createElement("p");
+  const second = document.createElement("p");
+  const third = document.createElement("p");
   const expButton = document.createElement("span");
 
   article.appendChild(articleTitle);
@@ -132,6 +132,7 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   article.appendChild(third);
   article.appendChild(expButton);
 
+  
   article.classList.add("article");
   articleDate.classList.add("date");
   expButton.classList.add("expandButton");
@@ -140,9 +141,21 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   articleTitle.textContent = title;
   articleDate.textContent = date;
   expButton.textContent = "+";
+  first.textContent = firstParagraph;
+  second.textContent = secondParagraph;
+  third.textContent = thirdParagraph;
 
   return article;
 };
+
+let myArticle = {
+  title: 'Salomon finally makes something!',
+  date: 'May 5, 2021',
+  firstParagraph: 'Something goes here.',
+  secondParagraph: 'Did you read through the first paragraph?',
+  thirdParagraph: `I don't think you really did. Go back and read it!`
+}
+data.push(myArticle)
 
 data.forEach((articleObj) => {
   const newsArticle = articleMaker(articleObj);
